@@ -13,7 +13,9 @@ public class OopMain {
 
         passObjects();
 
+        System.out.println("========");
         passImmutableObjects();
+        System.out.println("========");
 
         equalsExample();
 
