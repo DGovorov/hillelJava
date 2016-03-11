@@ -6,6 +6,14 @@ package OOP.inheritance.hierarchy;
 public class Employee extends Person{
     String position;
 
+    public Employee(){
+        super();
+    }
+
+    public Employee(String name){
+        super(name);
+    }
+
     public void greeting(){
         System.out.println("Hello, I'm employee, my name is " + getName());
     }
