@@ -3,7 +3,7 @@ package OOP;
 /**
  * Created by User on 26.02.2016.
  */
-public class Cat {
+public class Cat implements Comparable{
     private String color;
     private String name;
     private int birthYear;
@@ -40,5 +40,21 @@ public class Cat {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Cat other = (Cat) o;
+        if (birthYear > other.birthYear){
+            return -1;
+        } else if (birthYear < other.birthYear){
+            return 1;
+        }
+        return 0;
+
+
+        //if(true) return 0;  <<<hack
+
+        /*return other.birthYear - birthYear;       possible overflow*/
     }
 }
