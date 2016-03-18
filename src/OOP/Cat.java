@@ -57,4 +57,34 @@ public class Cat implements Comparable{
 
         /*return other.birthYear - birthYear;       possible overflow*/
     }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "color='" + color + '\'' +
+                ", name='" + name + '\'' +
+                ", birthYear=" + birthYear +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cat cat = (Cat) o;
+
+        if (birthYear != cat.birthYear) return false;
+        if (!color.equals(cat.color)) return false;
+        return name.equals(cat.name);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = color.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + birthYear;
+        return result;
+    }
 }

@@ -1,5 +1,7 @@
 package patterns;
 
+import patterns.fly.Rocket;
+
 /**
  * Created by User on 15.03.2016.
  */
@@ -10,6 +12,5 @@ public class DucksMain {
 
         duck.display();
         duck.quack();
-
     }
 }

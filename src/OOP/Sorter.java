@@ -1,17 +1,19 @@
 package OOP;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Created by MBCNEWMAIN on 11.03.2016.
  */
 public class Sorter {
-    public void sort(Comparable[] unsorted) {
+    public void sort(Comparable[] unsorted, Comparator comparator) {
         boolean swap = false;
         do {
             swap = false;
             for (int i = 0; i < unsorted.length - 1; i++) {
-                if (unsorted[i].compareTo(unsorted[i + 1]) > 0) {
+                //if (unsorted[i].compareTo(unsorted[i + 1]) > 0) {
+                if (comparator.compare(unsorted[i], unsorted[i + 1]) > 0) {
                     Comparable temp = unsorted[i];
                     unsorted[i] = unsorted[i + 1];
                     unsorted[i + 1] = temp;
@@ -28,11 +30,23 @@ public class Sorter {
         Cat cat1 = new Cat("asd", "dfdf", 10);
         Cat cat2 = new Cat("dfd", "df", 4);
         cat1.compareTo(cat2);
-        new Sorter().sort(cats);
+        //new Sorter().sort();
         System.out.println(Arrays.toString(s));
-
-
 
     }
 
+
+    //анонимный класс
+    Comparator comparator = new Comparator() {
+/*        int a;
+        public int getA(){
+            return a;*/
+
+
+        @Override
+        public int compare(Object o1, Object o2) {
+            return 0;
+        }
+    };
 }
+
