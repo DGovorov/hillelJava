@@ -35,7 +35,7 @@ public class SorterTest {
 
         sorter.sort(cats, new CatComparator());
 
-        Cat[] expected = {tom, murzik, barsik};
+        Cat[] expected = {tom, barsik, murzik};
 
         Assert.assertArrayEquals("Cats are in wrong order", expected, cats);
     }
@@ -47,7 +47,6 @@ public class SorterTest {
 
         Sorter sorter = new Sorter();
 
-
         Cat tom = new Cat("Tom", "White", 2013);
         Cat murzik = new Cat("Murzik", "Black", 2015);
         Cat barsik = new Cat("Barsik", "Grey", 2014);
@@ -58,8 +57,7 @@ public class SorterTest {
 
         sorter.sort(cats, new ReversedComparator(new CatComparator()));
 
-        Cat[] expected = {barsik, murzik, tom};
-
+        Cat[] expected = {murzik, barsik, tom};
 
         Assert.assertArrayEquals("Cats are in wrong order", expected, cats);
 
