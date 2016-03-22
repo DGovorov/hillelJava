@@ -77,7 +77,6 @@ public class Cat implements Comparable{
         if (birthYear != cat.birthYear) return false;
         if (!color.equals(cat.color)) return false;
         return name.equals(cat.name);
-
     }
 
     @Override
