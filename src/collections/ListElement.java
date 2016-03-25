@@ -41,4 +41,11 @@ public class ListElement {
 
     }
 
+    public Object getValue() {
+        return value;
+    }
+
+    public ListElement getNext() {
+        return next;
+    }
 }

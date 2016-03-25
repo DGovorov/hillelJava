@@ -1,8 +1,7 @@
-package patterns;
+package patterns.strategy;
 
-import patterns.fly.Flybehaviour;
-import patterns.quack.Quack;
-import patterns.quack.Quackbehaviour;
+import patterns.strategy.fly.Flybehaviour;
+import patterns.strategy.quack.Quackbehaviour;
 
 /**
  * Created by User on 15.03.2016.
