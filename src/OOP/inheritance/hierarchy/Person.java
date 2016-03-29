@@ -47,4 +47,9 @@ public class Person {
     public String toString(){
         return "Im Person, my name is " + getName();
     }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
 }
