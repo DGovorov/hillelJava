@@ -26,7 +26,7 @@ public class ListElement {
             return value;
         } else {
             if (next == null) {
-                return null;
+                throw new IndexOutOfBoundsException();
             }
             return next.get(index - 1);
         }

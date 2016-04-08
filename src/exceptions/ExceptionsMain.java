@@ -1,0 +1,96 @@
+package exceptions;
+
+import java.util.Random;
+
+/**
+ * Created by User on 08.04.2016.
+ */
+public class ExceptionsMain {
+    public static void main(String[] args) {
+
+        //uncheckedExample();
+
+        //  !!! checkedExample();
+
+        /*try {
+            checkedExample();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
+        try {
+            dangerStaff();
+        } catch (MyOwnOutOfIndexException | ArithmeticException e) {
+            System.out.println(e);
+        } catch (RuntimeException e){
+            System.out.println(e + "bla-bla");
+        }
+
+        System.out.println("end of program");
+
+    }
+
+    public static void dangerStaff() {
+        if (new Random().nextDouble() > 0.5) {
+            doWorkWithList();
+        } else {
+            doDivide(1, 0);
+        }
+    }
+
+    private static void doWorkWithList() {
+        throw new MyOwnOutOfIndexException("bla bla");
+    }
+
+    private static void uncheckedExample() {
+        System.out.println("before try");
+        try {
+            System.out.println("before divide");
+            divide(1, 0);
+            System.out.println("after divide");
+        } catch (ArithmeticException caughtException) {
+            System.out.println("in catch block");
+            System.out.println(caughtException);
+        } finally {
+            System.out.println("hello from finally block =)");
+        }
+        System.out.println("after try");
+
+
+        divide(2, 5);
+        divide(3, 5);
+        divide(4, 5);
+
+        operation(2, 8, "/");
+        //operation(4, 0, "/");
+    }
+
+    private static void checkedExample() throws InterruptedException {
+        try {
+            Thread.sleep(1333);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Thread.sleep(1333);
+    }
+
+    private static void divide(int a, int b) {
+        doDivide(a, b);
+    }
+
+    private static void operation(int a, int b, String operation) {
+        switch (operation) {
+            case "/":
+                doDivide(a, b);
+                break;
+            case "+":
+                System.out.println(a + b);
+        }
+    }
+
+    private static void doDivide(int a, int b) {
+        int i = a / b;
+    }
+
+}

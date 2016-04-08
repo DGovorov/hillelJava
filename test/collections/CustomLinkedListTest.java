@@ -38,5 +38,14 @@ public class CustomLinkedListTest {
 
         Assert.assertEquals(element, list.get(0));
         Assert.assertEquals(element, list.get(1));
+
+        try {
+            list.get(2);
+            Assert.fail();
+        /*} catch (Exception e){*/
+        } catch (Throwable e){
+            System.out.println(e);
+        }
+
     }
 }
