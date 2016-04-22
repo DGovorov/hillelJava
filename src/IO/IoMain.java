@@ -32,25 +32,41 @@ public class IoMain {
 
         //propertiesExample();
 
+        Person ivan = new Person("Ivan");
+        Car myCar = new Car("BMW", 1985, ivan);
+        ivan.setCar(myCar);
+        myCar.setTenant(new Tenant("Nikolay"));
+
+        save(myCar);
+
+/************/
+
+        Car deserializedCar = load();
+        System.out.println(deserializedCar);
+        // System.out.println(deserializedCar == myCar);
+
+
+
+    }
+
+    public static void  save(Car car){
         try(ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("myFolder/car.dat"))){
-            Car myCar = new Car("BMW", 1985, new Person("Ivan"));
-            outputStream.writeObject(myCar);
-            myCar.setRentor(new Rentor("Nikolai"));
+
+
+            outputStream.writeObject(car);
+            car.setTenant(new Tenant("Nikolai"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public static Car load(){
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("myFolder/car.dat"))){
-            Car myCar = (Car) inputStream.readObject();
-            System.out.println(myCar);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            return (Car) inputStream.readObject();
+        } catch (ClassNotFoundException | IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
