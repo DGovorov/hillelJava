@@ -31,7 +31,7 @@ public class SlowClient {
                 if (message.equals("exit")) {
                     break;
                 }
-                writer.print(message);
+                writer.println(message);
                 writer.flush();
             }
         } catch (IOException e) {
@@ -40,7 +40,7 @@ public class SlowClient {
     }
 
     public static void main(String[] args) {
-        new Client().start();
+        new SlowClient().start();
     }
 
 }
