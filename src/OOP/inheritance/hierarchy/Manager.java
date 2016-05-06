@@ -1,7 +1,5 @@
 package OOP.inheritance.hierarchy;
 
-import OOP.inheritance.hierarchy.Employee;
-
 /**
  * Created by User on 04.03.2016.
  */
