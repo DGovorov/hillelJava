@@ -5,6 +5,13 @@ package OOP.inheritance.hierarchy;
  */
 public class Manager extends Employee {
 
+    public Manager() {
+    }
+
+    public Manager(String name) {
+        super(name);
+    }
+
     public void fire(Employee employee){
         System.out.println(employee.position + " " + employee.getName() + " fired by " + position + " " + getName());
     }
