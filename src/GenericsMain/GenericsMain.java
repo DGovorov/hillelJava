@@ -4,10 +4,7 @@ import OOP.inheritance.hierarchy.Employee;
 import OOP.inheritance.hierarchy.Manager;
 import OOP.inheritance.hierarchy.Person;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by User on 06.05.2016.
@@ -46,6 +43,7 @@ public class GenericsMain {
 
         Pair<Person, Person> personPair = new Pair<Person, Person>(new Person(), new Person());
         Person first = personPair.getFirst();
+        Person second = personPair.getSecond();
 
         Pair<String, String> stringPair = new Pair<String, String>("wqeqwe", "weqwe");
 
@@ -55,6 +53,14 @@ public class GenericsMain {
         copy(employees, new ArrayList<>());
 
         List<Employee> employees1 = copy(managers);
+        employee = new Employee();
+
+        //SINGLETON !!! List of one element, used if you have one element but method expects List
+        fire(Collections.singletonList(employee));
+        //EMPTY LIST, size = 0; can be passed as variable. empty List
+        fire(Collections.emptyList());
+        //version with generic!
+        fire(Collections.<Employee>emptyList());
 
 
     }
