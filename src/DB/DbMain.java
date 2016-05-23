@@ -75,6 +75,49 @@ public class DbMain {
         return nameAndPrice;
     }
 
+    //injection-safe method (PreparedStatement instead of Statement)
+    public void updatePriceByName(String name, int price) throws Exception {
+        String sql = "UPDATE product SET price = ? WHERE name = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        statement.setInt(1, price);
+        statement.setString(2, name);
+        int rowsUpdated = statement.executeUpdate();
+        System.out.println("Updated " + rowsUpdated + " rows");
+        //System.out.println("SQL: " + sql);
+        statement.close();
+    }
+
+    public void createProduct(Product product) throws Exception {
+        String sql = "INSERT INTO product (id, name, category, price)" +
+                " VALUES (?, ?, ?, ?)";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, product.getId());
+        statement.setString(2, product.getName());
+        statement.setString(3, product.getCategory());
+        statement.setInt(4, product.getPrice());
+
+        int rowsInserted = statement.executeUpdate();
+
+        if (rowsInserted != 0){
+            System.out.println("Row inserted");
+        } else {
+            System.out.println("WARNING: Row has not been inserted!!!");
+        }
+        statement.close();
+    }
+
+    public void deleteProductById(int id) throws Exception {
+        String sql = "DELETE FROM product WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, id);
+
+        int rowsDeleted = statement.executeUpdate();
+
+        System.out.println("Rows deleted: " + rowsDeleted);
+        statement.close();
+    }
+
     public static void main(String[] args) throws Exception {
         System.setProperty("jdbc.drivers", "org.postgresql,Driver");
 
@@ -87,8 +130,10 @@ public class DbMain {
         System.out.println(main.findAllProducts());
         System.out.println(main.findById(1));
 
+        //main.updatePriceByName("Elephant", 9_999_999);
+        main.createProduct(new Product(5, "Giraffe", "African animal", 24_000));
+        //main.deleteProductById(5);
         connection.close();
-
     }
 
 }

@@ -71,4 +71,14 @@ public class Product {
         result = 31 * result + price;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
