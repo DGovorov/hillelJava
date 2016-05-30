@@ -1,5 +1,6 @@
 package patterns.factory.factory;
 
+import enums.PizzaType;
 import patterns.factory.pizza.Pizza;
 
 /**
@@ -7,6 +8,6 @@ import patterns.factory.pizza.Pizza;
  */
 public interface PizzaFactory {
 
-    Pizza createPizza(String type);
+    Pizza createPizza(PizzaType type);
 
 }
