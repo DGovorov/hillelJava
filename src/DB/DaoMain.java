@@ -20,12 +20,12 @@ public class DaoMain {
         Product product = DAO.findById(3);
         System.out.println("id = 3 " + product);
 
-        product.setName("Crocodile");
-        DAO.update(product);
+//        product.setName("Crocodile");
+//        DAO.update(product);
 
         System.out.println("After croco update " + DAO.findAll());
 
-        DAO.delete(product);
+//        DAO.delete(product);
 
         DAO.create(new Product(6, "Giraffe", "Aftican animal", 1));
 

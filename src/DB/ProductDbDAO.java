@@ -7,11 +7,11 @@ import java.util.List;
 /**
  * Created by User on 23.05.2016.
  */
-public class DbDAO implements DAO {
+public class ProductDbDAO implements DAO<Product> {
 
     private Connection connection;
 
-    public DbDAO() {
+    public ProductDbDAO() {
         System.setProperty("jdbc.drivers", "org.postgresql,Driver");
 
         try {

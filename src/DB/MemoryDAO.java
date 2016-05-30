@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Created by User on 23.05.2016.
  */
-public class MemoryDAO implements DAO {
+public class MemoryDAO implements DAO<Product> {
 
     private Map<Integer, Product> products = new HashMap<>();
 
