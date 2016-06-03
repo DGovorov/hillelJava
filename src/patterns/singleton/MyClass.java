@@ -1,4 +1,4 @@
-package staticExample;
+package patterns.singleton;
 
 /**
  * Created by User on 03.06.2016.
