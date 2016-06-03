@@ -5,10 +5,13 @@ package patterns.singleton;
  */
 public class TheGod implements God {
 
-    private static TheGod instance;
+    /*private static TheGod instance;*/
+    private static class Holder {
+        static final TheGod instance = new TheGod();
+    }
 
     public static TheGod getInstance() {
-        //lazy singleton realisation
+        /*//lazy singleton realisation
         //and multithread-safe implementation
         if (instance == null) {
             synchronized (TheGod.class) {
@@ -17,7 +20,8 @@ public class TheGod implements God {
                 }
             }
         }
-        return instance;
+        return instance;*/
+        return Holder.instance;
     }
 
     private TheGod() {
@@ -43,7 +47,7 @@ public class TheGod implements God {
         System.out.println("Jesus");
     }
 
-    public static void clear() {
+    /*public static void clear() {
         instance = null;
-    }
+    }*/
 }

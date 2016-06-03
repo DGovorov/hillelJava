@@ -26,7 +26,7 @@ public class Main {
             god1 = extractor1.god;
             god2 = extractor2.god;
             i++;
-            TheGod.clear();
+            /*TheGod.clear();*/
         } while (god1 == god2);
 
         System.out.println("Heretic! attempts: " + i);
