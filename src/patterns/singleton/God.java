@@ -10,4 +10,8 @@ public interface God {
 
     String getName();
 
+    default void resurrect(){
+        System.out.println("Ressurected");
+    }
+
 }
