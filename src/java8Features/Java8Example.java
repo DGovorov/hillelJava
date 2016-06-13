@@ -7,7 +7,6 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
 
 /**
  * Created by User on 06.06.2016.
@@ -31,6 +30,11 @@ public class Java8Example {
 
         //Optional.empty().get(); - leads to exception
 
+        optionalExample();
+
+    }
+
+    private static void optionalExample() {
         Optional<String> someString = generate();
         if (someString.isPresent()) {
             System.out.println(someString.get().toCharArray());
@@ -49,9 +53,8 @@ public class Java8Example {
         House house = new House();
         Optional<Pasport> mightBePassport =
                 house.getFlat()
-                .flatMap(Flat::getCitizen)
-                .flatMap(Citizen::getPaspot);
-
+                        .flatMap(Flat::getCitizen)
+                        .flatMap(Citizen::getPaspot);
     }
 
 

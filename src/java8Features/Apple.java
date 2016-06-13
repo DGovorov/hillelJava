@@ -9,10 +9,23 @@ public class Apple {
     private String color;
     private int price;
 
+    public Apple() {
+
+    }
+
     public Apple(int weight, String color, int price) {
         this.weight = weight;
         this.color = color;
         this.price = price;
+    }
+
+    public boolean isGreen() {
+        System.out.println("is green called");
+        return getColor().equals("Green");
+    }
+
+    public boolean isHeavy() {
+        return getWeight() > 200;
     }
 
     public int getWeight() {
